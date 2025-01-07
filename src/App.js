@@ -9,7 +9,7 @@ function App() {
   const [perPage, setPerPage]  = useState([]) // this is using for setting limit to pages how to many pages it will show using slice
 
   useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/comments').then(res => {setData(res.data); setPerPage(res.data.slice(0,10))})
+    axios.get('https://jsonplaceholder.typicode.com/posts').then(res => {setData(res.data); setPerPage(res.data.slice(0,10))})
   })
 
   const pageHandler =  (pageNumber) => {
@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="App">
       {data.length >= 1 ? <div>
-        {perPage.map(post =><div className='post' key={post.id}> {post.email}</div>)} <br></br>
+        {perPage.map(post =><div className='post' key={post.id}> {post.body}</div>)} <br></br>
         <Pagination data={data} pageHandler = {pageHandler} />
       </div> : <h1>Data not yet Loaded</h1>}
     </div>

@@ -9,7 +9,7 @@ function Pagination({data, pageHandler}) {
     return (
         <div>
             <center>
-                {pageNumbers.map(page => ( <div className='pagebutton' onClick={() => pageHandler(page)}>{page}</div> ))}
+                {pageNumbers.map(page => ( <div className='pagebutton' key={page} onClick={() => pageHandler(page)}>{page}</div> ))}
             </center>
         </div>
     )
