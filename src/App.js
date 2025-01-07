@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     axios.get('https://jsonplaceholder.typicode.com/photos').then(res => {setData(res.data); setPerPage(res.data.slice(0,10))})
-  }, [])
+  })
 
   const pageHandler =  (pageNumber) => {
     setPerPage(data.slice((pageNumber*10) - 10, pageNumber*10))
